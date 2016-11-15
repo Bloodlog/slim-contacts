@@ -1,0 +1,19 @@
+{% include 'header.twig' %}
+{% block body %}
+<div class="row">
+	<table class="table table-striped table-inverse view-contact">
+<tr><td>ID</td><td><a href="{{ path_for('view', {id:contact.id} ) }}">{{ contact.id }}</a></td></tr>
+<tr><td>Фамилия Имя Отество</td><td> 
+	<a href="{{ path_for('view', {id:contact.id} ) }}">{{ contact.surname }} {{ contact.name }} {{ contact.patronymic }}</a>
+		</td></tr>
+<tr><td>Возраст</td><td>{{ contact.age }}</td></tr>
+<tr><td>Email</td><td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td></tr>
+<tr><td>Телефон</td><td><a href="tel:{{ contact.number }}">{{ contact.number }}</a></td></tr>
+<tr><td>Действия</td><td>
+			<a href="{{ path_for('update', {id:contact.id} ) }}">Редактировать</a> /
+			<a href="{{ path_for('delete', {id:contact.id} ) }}">Удалить</a>
+		</td></tr>
+	</table>
+</div>
+{% endblock %}
+{% include 'footer.twig' %}

@@ -1,0 +1,38 @@
+{% include 'header.twig' %}
+{% block body %}
+<div class="row">
+	<form action="{{ path_for( action , {id:contact.id} ) }}" method="POST">
+	<table class="table table-striped table-inverse view-contact">
+		<input type="hidden" name="form[id]" value="{{ contact.id }}">
+		<tr>
+			<td>Фамилия</td><td> 
+			<input type="text" name="form[surname]" value="{{ contact.surname }}" placeholder="Фамилия">
+			</td>
+		</tr>
+		<tr>
+			<td>Имя</td><td> 
+			<input type="text" name="form[name]" value="{{ contact.name }}" placeholder="Имя">
+			</td>
+		</tr>
+		<tr>
+			<td>Отество</td><td> 
+			<input type="text" name="form[patronymic]" value="{{ contact.patronymic }}" placeholder="Отчество">
+			</td>
+		</tr>
+		<tr>
+			<td>Возраст</td>
+			<td><input type="text" name="form[age]" value="{{ contact.age }}" placeholder="Возраст">
+			</td>
+		</tr>
+		<tr>
+			<td>Email</td><td><input type="text" name="form[email]" value="{{ contact.email }}" placeholder="Email"></td>
+		</tr>
+		<tr>
+			<td>Телефон</td><td><input type="text" name="form[number]" value="{{ contact.number }}" placeholder="7XXXXXXXXXX"></td>
+		</tr>
+	</table>
+	<div><input type="submit" class="btn btn-primary" value="Сохранить"></div>
+	</form>
+</div>
+{% endblock %}
+{% include 'footer.twig' %}

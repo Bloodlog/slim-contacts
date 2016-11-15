@@ -1,0 +1,14 @@
+{% block sidebar %} 
+<div id="sidebar" class="col-md-2" >
+    <nav class="">
+        <span class="logo"><a href="{{ base_url() }}"><img src="{{base_url() }}/assets/image/contacts.png"></a></span>
+        <ul class="nav of nav-stacked">
+            <li>Меню</li>
+            <li><a href="{{ path_for('index') }}">Список контактов</a></li>
+        </ul>
+
+
+    </nav>
+</div>
+
+{% endblock %}

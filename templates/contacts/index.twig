@@ -1,0 +1,28 @@
+{% include 'header.twig' %}
+{% block body %}
+<div class="row">
+	<div class="" style="float:left"><h2>Список контактов</h2></div>
+	<div style="float:right;"><a href="{{ path_for('create') }}" class="btn btn-primary">Создать контакт</a></div>
+	<table class="table table-striped table-inverse">
+	<tr><td>ID</td><td>Фамилия Имя Отество</td><td>Возраст</td><td>Email</td><td>Телефон</td><td>Действия</td></tr>
+	{% for value in contacts %}
+	<tr>
+		<td><a href="{{ path_for('view', {id:value.id} ) }}">{{ value.id }}</a></td>
+		<td>
+			<a href="{{ path_for('view', {id:value.id} ) }}">
+				{{ value.surname }} {{ value.name }} {{ value.patronymic }}
+			</a>
+		</td>
+		<td>{{ value.age }}</td>
+		<td><a href="mailto:{{ value.email }}">{{ value.email }}</a></td>
+		<td><a href="tel:{{ value.number }}">{{ value.number }}</a></td>
+		<td>
+			<a href="{{ path_for('update', {id:value.id} ) }}">Редактировать</a> /
+			<a href="{{ path_for('delete', {id:value.id} ) }}">Удалить</a>
+		</td>
+	</tr>
+	{% endfor %}
+	</table>
+</div>
+{% endblock %}
+{% include 'footer.twig' %}
